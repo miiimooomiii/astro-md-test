@@ -26,38 +26,6 @@ const { Content } = await entry.render();
 </Layout>
 
 <style>
-  .link-card {
-    list-style: none;
-    display: flex;
-    padding: 0.25rem;
-    width: fit-content;
-    background-color: white;
-    background-image: none;
-    background-size: 400%;
-    border-radius: 0.6rem;
-    background-position: 100%;
-    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  }
-
-  .link-card > a {
-    text-decoration: none;
-    line-height: 1.4;
-    padding: 0.65rem 1.3rem;
-    border-radius: 0.35rem;
-    color: #111;
-    background-color: white;
-    opacity: 0.8;
-  }
-  .link-card:is(:hover, :focus-within) {
-    background-position: 0;
-    background-image: var(--accent-gradient);
-  }
-  .link-card:is(:hover, :focus-within) a {
-    color: rgb(var(--accent));
-  }
-
   :global(h1) {
     font-size: 3rem;
     font-weight: 800;
@@ -93,5 +61,37 @@ const { Content } = await entry.render();
   }
   :global(a:hover) {
     text-decoration: underline;
+  }
+
+  .link-card {
+    list-style: none;
+    display: flex;
+    padding: 0.25rem;
+    width: fit-content;
+    background-color: white;
+    background-image: none;
+    background-size: 400%;
+    border-radius: 0.6rem;
+    background-position: 100%;
+    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  }
+  .link-card > a {
+    text-decoration: none;
+    line-height: 1.4;
+    padding: 0.65rem 1.3rem;
+    border-radius: 0.35rem;
+    color: #111;
+    background-color: white;
+    opacity: 0.8;
+    text-decoration: none;
+  }
+  .link-card:is(:hover, :focus-within) {
+    background-position: 0;
+    background-image: var(--accent-gradient);
+  }
+  .link-card:is(:hover, :focus-within) a {
+    color: rgb(var(--accent));
   }
 </style>
