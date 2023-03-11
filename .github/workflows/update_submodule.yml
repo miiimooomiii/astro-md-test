@@ -8,23 +8,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-      with:
-        submodules: true
-    - name: Add workspace to safe.directory
-      run: git config --global --add safe.directory /github/workspace
-    - name: Update submodule
-      run: |
-        git submodule update --remote ./src/content/markdown/
-    - name: Git commit
-      run: |
-        git config --local user.name "miiimooomiii"
-        git config --local user.email "miiimooomiii@pm.me"
-        git add -A
-        git status
-        git commit -m "update submodule (by update_submodule.yml)"
-    - name: Git push
-      uses: ad-m/github-push-action@v0.5.0
-      with:
-        branch: master
-        github_token: ${{ secrets.DISPATCH_TOKEN }}
+      - uses: actions/checkout@v3.1.0
+        with:
+          submodules: true
+      - name: Add workspace to safe.directory
+        run: git config --global --add safe.directory /github/workspace
+      - name: Update submodule
+        run: |
+          git submodule update --remote ./src/content/markdown/
+      - name: Git commit
+        run: |
+          git config --local user.name "miiimooomiii"
+          git config --local user.email "miiimooomiii@pm.me"
+          git add -A
+          git status
+          git commit -m "update submodule (by update_submodule.yml)"
+      - name: Git push
+        uses: ad-m/github-push-action@v0.5.0
+        with:
+          branch: master
+          github_token: ${{ secrets.DISPATCH_TOKEN }}
