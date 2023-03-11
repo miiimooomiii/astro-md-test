@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-const blogEntries = await getCollection('markdown');
+const Entries = await getCollection('markdown');
+const nonDraftEntries = Entries.filter(entrie => !entrie.data.draft)
 
 import Layout from '../layouts/Layout.astro';
 ---
@@ -13,11 +14,11 @@ import Layout from '../layouts/Layout.astro';
 		</p>
 
 		<ul role="list">
-			{blogEntries.map(blogPostEntry => (
+			{nonDraftEntries.map(postEntry => (
 				<li class="flex justify-between items-end">
-					<a href={`/posts/${blogPostEntry.slug}`} class="text-2xl font-semibold"><h2>{blogPostEntry.data.title}</h2></a>
-					<time datetime={blogPostEntry.data.publishDate.toISOString()}>
-						{blogPostEntry.data.publishDate.toLocaleDateString("ja-JP")}
+					<a href={`/posts/${postEntry.slug}`} class="text-2xl font-semibold"><h2>{postEntry.data.title}</h2></a>
+					<time datetime={postEntry.data.publishDate.toISOString()}>
+						{postEntry.data.publishDate.toLocaleDateString("ja-JP")}
 					</time>
 				</li>
 			))}
