@@ -27,4 +27,4 @@ jobs:
         uses: ad-m/github-push-action@v0.5.0
         with:
           branch: master
-          github_token: ${{ secrets.DISPATCH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
