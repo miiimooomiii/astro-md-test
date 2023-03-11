@@ -15,7 +15,7 @@ import Layout from '../layouts/Layout.astro';
 
 		<ul role="list">
 			{nonDraftEntries.map(postEntry => (
-				<li class="flex justify-between items-end">
+				<li class="flex justify-between items-end my-2">
 					<a href={`/posts/${postEntry.slug}`} class="text-2xl font-semibold"><h2>{postEntry.data.title}</h2></a>
 					<time datetime={postEntry.data.publishDate.toISOString()}>
 						{postEntry.data.publishDate.toLocaleDateString("ja-JP")}
