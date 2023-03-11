@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
         with:
           submodules: true
       - name: Add workspace to safe.directory
@@ -24,7 +24,7 @@ jobs:
           git status
           git commit -m "update submodule (by update_submodule.yml)"
       - name: Git push
-        uses: ad-m/github-push-action@v0.5.0
+        uses: ad-m/github-push-action@master
         with:
           branch: master
           github_token: ${{ secrets.GITHUB_TOKEN }}
